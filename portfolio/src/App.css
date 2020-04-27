@@ -28,6 +28,10 @@
   color: #61dafb;
 }
 
+.percentBar {
+  margin-bottom: 8px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
