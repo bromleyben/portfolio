@@ -63,19 +63,8 @@ function App() {
               <UncontrolledTooltip delay={0} target="tooltip515203352">
                 Check out my Github
               </UncontrolledTooltip>
-              {/* <Button
-                className="btn-round btn-icon"
-                color="default"
-                id="tooltip340339231"
-                size="lg"
-              >
-                <i className="fab fa-instagram"></i>
-              </Button>
-              <UncontrolledTooltip delay={0} target="tooltip340339231">
-                Follow me on Instagram
-              </UncontrolledTooltip> */}
             </div>
-            <div style={{maxWidth: '1600px', margin: 'auto'}}>
+            <Container>
               <h3 className="title">
                 Who am I?
               </h3>
@@ -115,7 +104,7 @@ function App() {
               <h5 className="description">
                 Some stuff about the blog
               </h5>
-            </div>
+            </Container>
           </div>
     </div>
   );

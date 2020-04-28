@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import styled from 'styled-components';
 
 import {
     Row,
@@ -9,61 +10,65 @@ import {
   const SkillsData = [
       {
           label: 'Javascript',
-          desc: 'Pretty Good at this',
-          percentage: 80,
+          desc: `Javascript is my native tounge. I am working with it every day to achieve all kinds of weird and wonderful things. I am fluent in modern JS features such as async/await, frameworks like React, build tools such as Webpack and the JS superset Typescript.`,
+          percentage: 90,
           color: '#ffa5006e'
       },
       {
-        label: 'HTML',
-        desc: 'Pretty Good at HTML',
-        percentage: 70,
+        label: 'HTML/CSS',
+        desc: `The bread and butter of web development. I am fluent in CSS preprocessors such as LESS and SASS, and frequenty use the tools such as flexbox and CSS Grid to pull off elegant layouts.`,
+        percentage: 80,
         color: '#ff00007d'
     },
     {
-        label: 'CSS',
-        desc: 'Pretty Good at CSS',
-        percentage: 70,
-        color: '#2ca8ff7d'
-    },
-    {
         label: 'Python',
-        desc: 'Pretty Good at Python',
-        percentage: 60,
+        desc: `Let's face it, Python is the best. It's elegant, powerful and easy to write. I have been working with Python for years building custom business logic for Odoo systems.`,
+        percentage: 70,
         color: '#00008b78'
     },
     {
         label: 'React',
-        desc: 'Pretty Good at React',
-        percentage: 60,
+        desc: `React has changed the fronted-dev landscape massivly in the last few years. Recently I have been migrating a large application for a not-for-profit organisation from a monolithic KnockoutJS application into a beautifully clean and modern React app.`,
+        percentage: 70,
         color: '#00008b78'
     },
     {
         label: 'SQL',
-        desc: 'Pretty Good at SQL',
+        desc: `When working with large sets of data, nothing beats cutting straight to the source and crafting an elegant SQL statement to fetch the data in a flash.`,
         percentage: 50,
         color: '#00008b78'
     },
     {
-        label: 'Angular',
-        desc: 'Pretty Good at Angular',
+        label: 'C#',
+        desc: `Whilst not my strongest language, I have experience on .NET projects that have exposed me to the values and advantages of stongly typed languages, which motivated me to learn Typescript to help my Javascript scale.`,
         percentage: 40,
         color: '#00008b78'
     },
     {
-        label: 'C#',
-        desc: 'Pretty Good at C#',
+        label: 'Angular',
+        desc: `One of the other big players in the JS framework game, I have experience working with several Angular projects, both for work and through university.`,
         percentage: 30,
         color: '#00008b78'
-    },
+    }
 
   ]
+
+const SkillSectionRow = styled(Row)`
+    height: 350px;
+`;
+
+const SkillsList = styled(Col)`
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+`;
 
 function SkillSection() {
     const [selected, setSelected] = useState<number>(0);
 
 
     return <>
-    <Row>
+    <SkillSectionRow>
         <Col sm="6">
             {SkillsData.map((skill, idx) => {
                 return <div key={idx}>
@@ -74,8 +79,9 @@ function SkillSection() {
                 </div>
             })}
         </Col>
-        <Col sm="6">
-        {SkillsData.map((skill, idx) => {
+
+        <SkillsList sm="6">
+            {SkillsData.map((skill, idx) => {
                 return <PercentBar 
                     key={idx}
                     label={skill.label} 
@@ -84,17 +90,8 @@ function SkillSection() {
                     onClick={() => setSelected(idx)}
                     />
             })}
-{/* 
-            <PercentBar label="Javascript" percent={80} color="orange" />
-            <PercentBar label="HTML" percent={70} color="red" />
-            <PercentBar label="CSS" percent={70} color="blue" />
-            <PercentBar label="Python" percent={60} color="darkblue" />
-            <PercentBar label="React" percent={60} color="lightblue" />
-            <PercentBar label="SQL" percent={45} color="green" />
-            <PercentBar label="Angular" percent={30} color="darkred" />
-            <PercentBar label="C#" percent={30} color="purple" /> */}
-        </Col>
-    </Row>
+        </SkillsList>
+    </SkillSectionRow>
     </>
 }
 

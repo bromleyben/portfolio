@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 interface PercentBarProps {
     label: string;
@@ -7,20 +8,43 @@ interface PercentBarProps {
     onClick: any;
 }
 
+const PercentBarDiv = styled.div<PercentBarProps>`
+    display: flex;
+
+    .label {
+        width: 100px;
+    }
+
+    .bar {
+        display: flex;
+        flex: 1 0 auto;
+    }
+
+    .filled {
+        width: ${props => props.percent}%;
+        background-color: ${props => props.color};
+    }
+
+    .empty {
+        text-align: right;
+        flex: 1 1 auto;
+    }
+`;
+
 function PercentBar (props: PercentBarProps) {
-    return <div className="percentBar" style={{display: 'flex'}} onClick={props.onClick}>
-        <div style={{width: '100px'}}>
+    return <PercentBarDiv onClick={props.onClick} {...props}>
+        <div className='label'>
             {props.label}
         </div>
 
-        <div style={{display: 'flex', flex: '1 0 auto'}}>
-            <div style={{width: `${props.percent}%`, backgroundColor: props.color}}></div>
-            <div style={{textAlign: 'right', flex: '1 1 auto'}}>
+        <div className='bar'>
+            <div className='filled'/>
+            <div className='empty'>
                 {props.percent}%
             </div>
         </div>
         
-    </div>
+    </PercentBarDiv>
 }
 
 export default PercentBar;
